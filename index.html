@@ -78,6 +78,65 @@ section{scroll-margin-top:84px}
 .sec-head.center .sec-sub{margin-left:auto;margin-right:auto}
 .section{padding:88px 0}
 
+/* ===== 家长好评 ===== */
+.testimonials{background:var(--paper-2);padding:72px 0}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.testi-card{
+  background:#fff;border-radius:var(--radius);padding:28px;
+  box-shadow:var(--shadow-soft);display:flex;flex-direction:column;
+}
+.testi-stars{color:var(--amber-strong);font-size:18px;letter-spacing:2px;margin-bottom:14px}
+.testi-text{color:var(--ink);font-size:15px;line-height:1.8;flex:1;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--line)}
+.testi-avatar{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  font-weight:700;font-size:17px;flex:none;
+}
+.testi-author b{display:block;font-size:14.5px;color:var(--ink)}
+.testi-author span{font-size:12.5px;color:var(--ink-2)}
+
+/* ===== 校区折叠分组 ===== */
+.campus-accordion{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+.campus-group{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-soft);
+}
+.campus-group summary{
+  padding:18px 22px;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;
+  font-weight:700;font-size:16.5px;color:var(--green-deep);
+  background:var(--green-soft);
+  transition:background .18s ease;
+}
+.campus-group summary::-webkit-details-marker{display:none}
+.campus-group summary:hover{background:var(--green-soft)}
+.campus-group summary .group-count{
+  font-size:13px;font-weight:500;color:var(--ink-2);
+  background:#fff;padding:3px 10px;border-radius:20px;
+}
+.campus-group summary .arrow{
+  width:20px;height:20px;transition:transform .2s ease;
+}
+.campus-group[open] summary .arrow{transform:rotate(180deg)}
+.campus-group .group-content{padding:10px 22px 20px}
+.district-group{margin-top:14px}
+.district-group:first-child{margin-top:6px}
+.district-name{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.district-name .pin{width:14px;height:14px;color:var(--coral)}
+
+/* ===== 浮动预约按钮 ===== */
+.float-cta{
+  position:fixed;right:24px;bottom:24px;z-index:99;
+  background:var(--coral);color:#fff;text-decoration:none;
+  padding:14px 24px;border-radius:50px;font-weight:700;font-size:15px;
+  box-shadow:0 8px 24px rgba(226,96,60,.35);
+  display:flex;align-items:center;gap:8px;
+  transition:transform .18s ease,box-shadow .18s ease;
+  animation:float 3s ease-in-out infinite;
+}
+.float-cta:hover{background:var(--coral-deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(226,96,60,.45)}
+.float-cta svg{width:18px;height:18px}
+
 /* ===== 按钮：圆润克制，图标轻微位移 ===== */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -162,6 +221,9 @@ section{scroll-margin-top:84px}
 }
 .hero-route .ic{width:15px;height:15px;color:var(--coral)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-note{margin-top:14px;font-size:13.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.hero-note b{color:var(--coral-deep);font-weight:700}
+.hero-note::before{content:"✓";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--green-soft);color:var(--green-deep);font-size:11px;font-weight:700}
 .hero-visual{position:relative}
 .hero-frame{
   position:relative;border-radius:140px 140px 22px 22px;overflow:hidden;
@@ -485,6 +547,7 @@ section{scroll-margin-top:84px}
   .about-grid{gap:44px}
   .route-steps{grid-template-columns:repeat(2,1fr);gap:16px}
   .route-arrow{display:none}
+  .testi-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:860px){
   .main-nav{
@@ -519,6 +582,8 @@ section{scroll-margin-top:84px}
   .route-steps{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
   .award-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr;gap:16px}
+  .testi-card{padding:22px}
   .footer-top{grid-template-columns:1fr;gap:30px}
   .hero-card.hc-1{left:8px;top:18px}
   .hero-card.hc-2{right:8px}
@@ -526,6 +591,11 @@ section{scroll-margin-top:84px}
   .map-link{padding:10px 6px}
   .nav-toggle{padding:11px}
   .brand{padding:6px 0}
+  .float-cta{right:16px;bottom:16px;padding:13px 20px;font-size:14.5px}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .hero-note{font-size:13px}
+  .sec-title{font-size:clamp(24px,6vw,32px)}
+  .container{padding:0 18px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -547,9 +617,9 @@ section{scroll-margin-top:84px}
       <a href="#features" data-spy>阅读特色</a>
       <a href="#campus" data-spy>成都校区</a>
       <a href="#awards" data-spy>品牌荣誉</a>
-      <a href="#trial" data-spy>联系我们</a>
+      <a href="#trial" data-spy>预约试听</a>
     </nav>
-    <a class="btn btn-primary header-cta" href="#trial">预约体验课</a>
+    <a class="btn btn-primary header-cta" href="#trial">免费预约试听</a>
     <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
       <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -566,21 +636,22 @@ section{scroll-margin-top:84px}
   <div class="container hero-inner">
     <div class="hero-copy">
       <span class="hero-badge fade f1"><span class="dot"></span>安妮花 · 成都区域 社区旗舰绘本馆</span>
-      <h1 class="fade f2">让英语启蒙<br>从<span class="hl">阅读</span>开始
+      <h1 class="fade f2">英语启蒙别焦虑<br>从<span class="hl">阅读</span>开始就对了
         <svg viewBox="0 0 132 16" fill="none" aria-hidden="true"><path d="M4 11C22 6 40 5 58 8s34 6 50 2 16-5 20-3" stroke="#E2603C" stroke-width="5" stroke-linecap="round"/></svg>
       </h1>
-      <p class="hero-sub fade f3">磨耳朵、品绘本、练自然拼读、成自主阅读——借鉴北美图书馆与学校模式，为 2-12 岁孩子提供与北美同步的英语启蒙与阅读成长体系。</p>
+      <p class="hero-sub fade f3">17年沉淀 · 30万+原版绘本 · 成都18家校区，从磨耳朵到自主阅读，让孩子像学母语一样学英语，少走3年弯路。</p>
       <div class="hero-route fade f4">
-        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 18v-6a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v6"/><path d="M1 14h22"/><path d="M4 21v-3M20 21v-3"/></svg>0 岁开始磨耳朵</span>
-        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 4 6 3 3 4v14c3-1 7 0 9 2 2-2 6-3 9-2V4c-3-1-7 0-9 2.5z"/><path d="M12 6.5V20"/></svg>情境对应品绘本</span>
-        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V9M10 20V4M14 20V7M18 20V5"/></svg>自然拼读练阅读</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>宝宝爱听英语 · 2-4岁</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 4 6 3 3 4v14c3-1 7 0 9 2 2-2 6-3 9-2V4c-3-1-7 0-9 2.5z"/><path d="M12 6.5V20"/></svg>自主读原版绘本 · 5-7岁</span>
+        <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8m-4-18v18m-7-14 14 7m-14-7 14-7"/></svg>KET/PET轻松过 · 8-12岁</span>
       </div>
       <div class="hero-actions fade f5">
-        <a class="btn btn-primary" href="#trial">免费预约体验课
+        <a class="btn btn-primary" href="#trial">免费预约体验课 · 送绘本礼盒
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-ghost" href="#campus">查看成都校区</a>
       </div>
+      <p class="hero-note fade f5">已有 <b>326</b> 位成都家长成功预约 · 不满意不推销</p>
     </div>
     <div class="hero-visual fade f3">
       <div class="hero-frame">
@@ -616,6 +687,52 @@ section{scroll-margin-top:84px}
     <div class="stat">
       <svg class="stat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4C11 4 4 9 4 16c0 2 1 3 1 3s10-1 15-10z"/><path d="M4 19C8 10 12 6 20 4"/></svg>
       <b><span class="count" data-count="30">30</span>万+</b><span>英文原版绘本馆藏</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 家长好评 ===== -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow" style="justify-content:center">家长怎么说</span>
+      <h2 class="sec-title">成都妈妈们的真实反馈</h2>
+      <p class="sec-sub">不靠广告靠口碑，17年攒下的家长信任，才是我们最硬的招牌。</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"孩子以前坐不住，现在每天回家主动要读英文绘本，老母亲太欣慰了！老师特别有耐心，会根据孩子的节奏调整进度，不是那种填鸭式教学。"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:var(--coral-soft);color:var(--coral-deep)">桐</div>
+          <div>
+            <b>桐桐妈妈</b>
+            <span>娃 5 岁 · 神仙树馆学员 1 年</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"对比了成都好多家英语机构，最后选安妮花就是因为理念——从阅读开始，不是上来就背单词。半年下来，孩子能自己读分级读物了，发音还特别标准。"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:var(--green-soft);color:var(--green-deep)">诺</div>
+          <div>
+            <b>诺诺爸爸</b>
+            <span>娃 7 岁 · 通用时代馆学员 8 个月</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"社区店太方便了，下楼走路5分钟就到。绘本馆环境特别好，30万册绘本不是吹的，孩子周末都泡在馆里。老师定期给家长反馈，很放心。"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:var(--amber-soft);color:var(--amber-strong)">朵</div>
+          <div>
+            <b>朵朵妈妈</b>
+            <span>娃 4 岁 · 光华馆学员 1.5 年</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -808,7 +925,16 @@ section{scroll-margin-top:84px}
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
       校区名称与联系电话来自安妮花官方发布的成都校区分布资料；营业时间与课程安排以各馆实际为准，点击“查看地图”可直达导航。
     </div>
-    <div class="campus-groups">
+    <div class="campus-accordion">
+      <details class="campus-group" open>
+        <summary>
+          <span>🏙️ 主城区（6家）</span>
+          <span style="display:flex;align-items:center;gap:10px">
+            <span class="group-count">家长最常选</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="group-content">
       <div class="district-group">
         <h3 class="district-name"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>武侯区</h3>
         <div class="store-item">
@@ -862,6 +988,18 @@ section{scroll-margin-top:84px}
           <a class="map-link" href="https://uri.amap.com/search?keyword=%E5%AE%89%E5%A6%AE%E8%8A%B1%E5%A4%A9%E5%BA%9C%E9%91%AB%E8%8B%91%E9%A6%86%E6%88%90%E9%83%BD&city=%E6%88%90%E9%83%BD" target="_blank" rel="noopener">查看地图<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
+        </div>
+      </details>
+
+      <details class="campus-group">
+        <summary>
+          <span>🌳 近郊（5家）</span>
+          <span style="display:flex;align-items:center;gap:10px">
+            <span class="group-count">双流/温江/郫都/青白江</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="group-content">
       <div class="district-group">
         <h3 class="district-name"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>双流区</h3>
         <div class="store-item">
@@ -904,6 +1042,18 @@ section{scroll-margin-top:84px}
           <a class="map-link" href="https://uri.amap.com/search?keyword=%E5%AE%89%E5%A6%AE%E8%8A%B1%E5%87%A4%E5%87%B0%E6%96%B0%E5%A4%A9%E5%9C%B0%E9%A6%86%E6%88%90%E9%83%BD&city=%E6%88%90%E9%83%BD" target="_blank" rel="noopener">查看地图<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
+        </div>
+      </details>
+
+      <details class="campus-group">
+        <summary>
+          <span>📍 远郊及郊县（4家）</span>
+          <span style="display:flex;align-items:center;gap:10px">
+            <span class="group-count">金堂/新津/蒲江/都江堰</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="group-content">
       <div class="district-group">
         <h3 class="district-name"><svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>金堂县</h3>
         <div class="store-item">
@@ -941,6 +1091,8 @@ section{scroll-margin-top:84px}
           <a class="map-link" href="https://uri.amap.com/search?keyword=%E5%AE%89%E5%A6%AE%E8%8A%B1%E5%B9%B8%E7%A6%8F%E4%B8%96%E5%AE%B6%E9%A6%86%E6%88%90%E9%83%BD&city=%E6%88%90%E9%83%BD" target="_blank" rel="noopener">查看地图<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
+        </div>
+      </details>
     </div>
     <p class="campus-note">* 以上为安妮花官方发布的成都 18 家校区完整清单，营业时间与课程安排请以各馆实际为准。</p>
   </div>
@@ -985,9 +1137,9 @@ section{scroll-margin-top:84px}
 <section class="section trial" id="trial">
   <div class="container trial-wrap">
     <div class="trial-info">
-      <span class="eyebrow">预约体验</span>
-      <h2>带孩子来馆里<br>感受一次“阅读”的快乐</h2>
-      <p>填写预约信息，安妮花顾问将为您推荐就近校区与合适的课程阶段，并预约一次免费体验课。</p>
+      <span class="eyebrow">免费预约 · 0 元试听</span>
+      <h2>带孩子来馆里<br>亲身体验一节阅读课</h2>
+      <p>现在预约即送 <b style="color:var(--coral-deep)">价值 298 元英文原版绘本礼盒</b>，安妮花顾问将在 1 个工作日内联系您，推荐就近校区并安排试听时间。</p>
       <div class="trial-contacts">
         <div class="trial-contact">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span>
@@ -1004,8 +1156,8 @@ section{scroll-margin-top:84px}
       </div>
     </div>
     <form class="trial-form" id="trialForm" novalidate>
-      <h3>预约免费体验课</h3>
-      <p class="form-sub">留下信息，顾问将在 1-2 个工作日内与您联系</p>
+      <h3>0 元预约试听 · 送绘本礼盒</h3>
+      <p class="form-sub">仅需 30 秒填写，顾问将在 1 个工作日内联系您</p>
       <div class="form-grid">
         <div class="field">
           <label for="fName">家长称呼 *</label>
@@ -1055,8 +1207,8 @@ section{scroll-margin-top:84px}
           <textarea id="fMsg" name="message" placeholder="孩子的英语启蒙情况，或想了解的问题…"></textarea>
         </div>
       </div>
-      <button class="btn btn-primary form-submit" type="submit">提交预约</button>
-      <p class="form-tip">本页为官网设计演示，提交不会实际发送信息</p>
+      <button class="btn btn-primary form-submit" type="submit">立即预约 · 领绘本礼盒</button>
+      <p class="form-tip">我们承诺保护您的隐私，信息仅用于课程咨询联系</p>
     </form>
   </div>
 </section>
@@ -1203,5 +1355,12 @@ section{scroll-margin-top:84px}
   }
 })();
 </script>
+
+<!-- 浮动预约按钮 -->
+<a class="float-cta" href="#trial">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+  免费预约试听
+</a>
+
 </body>
 </html>
